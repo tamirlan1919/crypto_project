@@ -1,0 +1,25 @@
+header{
+    padding: 33px 0px;
+}
+
+header ul li a{
+    color: #000;
+/* text/16/medium */
+font-family: DM Sans;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+text-decoration: none;
+letter-spacing: 1px;
+
+
+}
+header ul{
+    display: flex;
+}
+header ul li{
+    list-style-type: none;
+    margin-right: 24px;
+    
+}
