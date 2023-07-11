@@ -7,12 +7,19 @@ from django.contrib.auth import logout,login
 from django.contrib.auth.decorators import login_required
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
 from .models import Transaction
-from .serializers import TransactionSerializer
+from .serializers import TransactionSerializer,WalletSerializer
+from rest_framework import generics
 import requests
 # Create your views here.
 
 User = get_user_model
+
+
+
+
 
 def index(request):
    
@@ -29,30 +36,27 @@ def wallet(request):
         transaction = Transaction.objects.create(sender_wallet=sender_wallet, recipient_address=recipient_address, amount=amount, confirming_user=request.user)
         return redirect('transaction_detail', pk=transaction.pk)
      return render(request, 'wallet.html')
+
+
+class TransactionAPIView(generics.CreateAPIView):
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
+
+
+    
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+    
 @api_view(['POST'])
-def confirm_transaction(request, transaction_id):
+def confirm_transaction(request, pk):
     try:
-        transaction = Transaction.objects.get(id=transaction_id)
+        transaction = Transaction.objects.get(id=pk)
     except Transaction.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-    api_url = 'http://api/confirm-transaction'  # Замените на URL вашего API для подтверждения
-    api_data = {
-        'transaction_id': transaction.id,
-        'amount': transaction.amount,
-        'description': transaction.description
-    }
-
-    try:
-        response = requests.post(api_url, json=api_data)
-        response.raise_for_status()
-    except requests.exceptions.RequestException as e:
-        # Обработка ошибки вызова API
-        error_message = 'Ошибка вызова API: {}'.format(str(e))
-        return Response({'error': error_message}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-    transaction.confirmed = True
+    transaction.is_confirmed = True
     transaction.save()
+
     serializer = TransactionSerializer(transaction)
     return Response(serializer.data)
 
@@ -92,7 +96,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('/')  # замените 'home' на URL вашей домашней страницы
+            return redirect('/')  
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})

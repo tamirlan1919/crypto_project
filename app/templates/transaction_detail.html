@@ -16,7 +16,11 @@
                     <a href="{% url '/' %}">Back to  main page</a>
                 {% endif %}
                 {% if not transaction.is_confirmed and not transaction.is_cancelled %}
-                   <a href="{% url 'confirm_transaction' pk=transaction.pk %}"><button class="btn btn-primary">Confirm</button></a>
+                <form action="{% url 'confirm_transaction' pk=transaction.pk %}" method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-primary">Confirm</button>
+
+                </form>
                    <a href="{% url 'cancel_transaction' pk=transaction.pk %}"><button class = "btn btn-danger">Cancel</button></a> 
                 {% endif %}
             </div>

@@ -13,16 +13,14 @@
 </head>
 <body>
     <header>
-        <div class="conteiner">
+        <div class="container">
             <div class="row">
-                <div class="col-9">
-                    <h1><a href="{% url '/' %}">Banxe.</a></h1>
-                </div>
+                <div class="col"><h1><a  class = 'banxe' href="{% url '/' %}">Banxe.</a></h1></div>
                 <div class="col-3">
                     <ul>
                     {% if request.user.is_authenticated %}
-                        <li><a href="">{{request.user}}</a></li>
-                        <li><a href="{% url 'logout'  %}">Logout</a></li>
+                        <li><a class ="banxe" href="">{{request.user}}</a></li>
+                        <li><a class ="banxe" href="{% url 'logout'  %}">Logout</a></li>
                         {% else %}
                         <li><a href="{% url 'user_login'  %}">Login</a></li>
                         <li><a href="{% url 'signup' %}">Register</a></li>
@@ -35,10 +33,10 @@
     {% block content %}
     <main>
         <div class="container discover">
-            <div class="row">
-                <div class="col"><h1>discover and collect rare USDT</h1>
+            <div class="row inf">
+                <div class="col-6"><h1>discover and collect rare USDT</h1>
                 <p>The most secure marketplace for buying and selling unique crypto assets.</p></div>
-                <div class="col"><img src="{% static 'img/Other 07.png' %}" alt="">
+                <div class="col-6"><img src="{% static 'img/Other 07.png' %}" alt="">
                     <svg xmlns="http://www.w3.org/2000/svg" class="right" width="653" height="1276" viewBox="0 0 653 1276" fill="none">
                         <g filter="url(#filter0_f_203_32)">
                         <path d="M952 638C952 811.417 811.417 952 638 952C464.583 952 324 811.417 324 638C324 464.583 464.583 324 638 324C811.417 324 952 464.583 952 638Z" fill="#AAD9D9" fill-opacity="0.6"/>

@@ -7,15 +7,9 @@
        
         <form action="" method="POST">
                 {% csrf_token %}
-        
-               
                 <input type="text"  required placeholder="Sender Wallet:" name="sender_wallet" id="sender_wallet">
-            
-                <input type="text" required placeholder="Recipient Address:" name="recipient_address" id="recipient_address">
-            
-                
+                <input type="text" required placeholder="Recipient Address:" name="recipient_address" id="recipient_address"> 
                 <input type="text" required placeholder="Amount:" name="amount" id="amount">
-            
                 <button type="submit">Create Transaction</button>
             </form>
             

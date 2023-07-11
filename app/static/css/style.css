@@ -6,7 +6,22 @@ header{
 html,body{
     overflow-x: hidden;
 }
-
+.inf{
+    justify-content: space-between;
+}
+.inf h1{
+    margin-right: 100px;
+}
+.banxe{
+    text-decoration: none;
+    color: #FFF;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 27.5px;
+    text-transform: uppercase;
+}
 header h1{
     color: #FFF;
 font-family: Outfit;
@@ -89,6 +104,9 @@ main .right{
     position: absolute;
     left: 80%;
     top: 200px;
+}
+.btns  a{
+    text-decoration: none;
 }
 
 header ul li a{

@@ -32,7 +32,7 @@ urlpatterns = [
     path('signin/',views.user_login,name='user_login'),
     path('signup/',views.signup,name='signup'),
     path('wallet/',views.wallet, name='wallet'),
-    path('api/confirm-transaction/', views.confirm_transaction, name='confirm_transaction'),
+    path('api/confirm-transaction/', views.TransactionAPIView.as_view(), name='confirm_transaction'),
 
 ]
 
