@@ -1,20 +1,30 @@
 {% extends 'index.html'%}
 
 {% block content %}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col info">
+                <a href="{% url 'transaction_list' %}"><button>Назад</button></a><h2>Transaction Details</h2>
+                <p>Sender Wallet: {{ transaction.sender_wallet }}</p>
+                <p>Recipient Address: {{ transaction.recipient_address }}</p>
+                <p>Amount: {{ transaction.amount }}</p>
+                <p>Confirmed: {{ transaction.is_confirmed }}</p>
+                <p>Cancelled: {{ transaction.is_cancelled }}</p>
+                {% if transaction.is_confirmed or transaction.is_cancelled %}
+                    <p>Confirming User: {{ transaction.confirming_user }}</p>
+                    <a href="{% url '/' %}">Back to  main page</a>
+                {% endif %}
+                {% if not transaction.is_confirmed and not transaction.is_cancelled %}
+                   <a href="{% url 'confirm_transaction' pk=transaction.pk %}"><button class="btn btn-primary">Confirm</button></a>
+                   <a href="{% url 'cancel_transaction' pk=transaction.pk %}"><button class = "btn btn-danger">Cancel</button></a> 
+                {% endif %}
+            </div>
+        </div>
+    </div>
 
-<h2>Transaction Details</h2>
-<p>Sender Wallet: {{ transaction.sender_wallet }}</p>
-<p>Recipient Address: {{ transaction.recipient_address }}</p>
-<p>Amount: {{ transaction.amount }}</p>
-<p>Confirmed: {{ transaction.is_confirmed }}</p>
-<p>Cancelled: {{ transaction.is_cancelled }}</p>
-{% if transaction.is_confirmed or transaction.is_cancelled %}
-    <p>Confirming User: {{ transaction.confirming_user }}</p>
-{% endif %}
-{% if not transaction.is_confirmed and not transaction.is_cancelled %}
-   <a href="{% url 'confirm_transaction' pk=transaction.pk %}"><button class="btn btn-primary">Confirm</button></a>
-   <a href="{% url 'cancel_transaction' pk=transaction.pk %}"><button class = "btn- btn-danger">Cancel</button></a> 
-{% endif %}
+
+</main>
 
 
 

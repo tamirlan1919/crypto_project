@@ -1,17 +1,104 @@
 header{
     padding: 33px 0px;
+    background-color: #000235;
+}
+
+html,body{
+    overflow-x: hidden;
+}
+
+header h1{
+    color: #FFF;
+font-family: Outfit;
+font-size: 20px;
+font-style: normal;
+font-weight: 900;
+line-height: 27.5px;
+text-transform: uppercase;
+}
+main{
+    background: #000235;
+    height: 100vh;
+}
+main .discover p{
+    max-width: 360px;
+    color: #FFF;
+    /* Body Text */
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.5px;
+}
+main .discover h1{
+    color: #FFF;
+    margin-top: 127px;
+    /* H1-Main Heading */
+    font-family: Outfit;
+    font-size: 83px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 101%;
+    text-transform: capitalize;
+}
+
+main .buy{
+    display: flex;
+    width: 236px;
+    padding: 22px 56px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 83px;
+    background: #9090DC;
+    color: #FFF;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-right: 19px;
+}
+main .sell{
+    display: flex;
+    width: 236px;
+    padding: 22px 56px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 83px;
+    border: 2px solid #97D5D5;
+    background: #000235;
+    color: #FFF;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+main .btns{
+    display: flex;
+    margin-bottom: 120px;
+    
+}
+main .right{
+    position: absolute;
+    left: 80%;
+    top: 200px;
 }
 
 header ul li a{
-    color: #000;
-/* text/16/medium */
-font-family: DM Sans;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-text-decoration: none;
-letter-spacing: 1px;
+    color: #FFF;
+    font-family: Outfit;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.5px;
+    text-transform: capitalize;
 
 
 }
@@ -22,4 +109,78 @@ header ul li{
     list-style-type: none;
     margin-right: 24px;
     
+}
+
+main form{
+    display: block;
+}
+main form input{
+    margin-bottom: 20px;
+    display: block;
+    border-radius: 7px;
+    background: #F8F1FF;
+    color: #403A4B;
+   
+   
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100%;
+    padding: 12px 84px;
+    text-align: start;
+}
+main .info{
+    margin-bottom: 20px;
+    display: block;
+    border-radius: 7px;
+    background: #F8F1FF;
+    color: #403A4B;
+   
+   
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100%;
+    padding: 12px 84px;
+    text-align: start;
+}
+
+main .info ul li a{
+    margin-bottom: 20px;
+    display: block;
+    border-radius: 7px;
+    background: #F8F1FF;
+    color: #403A4B;
+   
+   
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100%;
+    
+    text-align: start;
+}
+
+main form{
+    margin: 0 auto;
+    
+    max-width: 273px;
+}
+
+main form button{
+    
+    border-radius: 7px;
+    background: #9090DC;
+    color: #FFF;
+    text-align: center;
+    font-family: HelveticaNeue;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    padding: 12px 84px;
 }

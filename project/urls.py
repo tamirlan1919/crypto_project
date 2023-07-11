@@ -24,13 +24,16 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index,name='/'),
-    path('login/',views.login,name = 'login'),
     path('<int:pk>/confirm/', views.confirm_transaction, name='confirm_transaction'),
     path('<int:pk>/cancel/', views.cancel_transaction, name='cancel_transaction'),
     path('transaction/', views.transaction_list, name='transaction_list'),
     path('transaction/<int:pk>/', views.transaction_detail, name='transaction_detail'),
     path('logout',views.user_logout,name='logout'),
-    path('login/',views.user_login,name='user_login')
+    path('signin/',views.user_login,name='user_login'),
+    path('signup/',views.signup,name='signup'),
+    path('wallet/',views.wallet, name='wallet'),
+    path('api/confirm-transaction/', views.confirm_transaction, name='confirm_transaction'),
+
 ]
 
 if settings.DEBUG:

@@ -7,47 +7,62 @@
     <title>Banxe</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="conteiner">
             <div class="row">
-                <div class="col">
-                    <h1>Banxe</h1>
+                <div class="col-9">
+                    <h1><a href="{% url '/' %}">Banxe.</a></h1>
                 </div>
-                <div class="col">
+                <div class="col-3">
                     <ul>
                     {% if request.user.is_authenticated %}
                         <li><a href="">{{request.user}}</a></li>
                         <li><a href="{% url 'logout'  %}">Logout</a></li>
                         {% else %}
                         <li><a href="{% url 'user_login'  %}">Login</a></li>
-                        <li><a href="">Register</a></li>
+                        <li><a href="{% url 'signup' %}">Register</a></li>
                         {% endif %}
                     </ul>
                 </div>
             </div>
         </div>
     </header>
-    <div>
-        {% block content %}
-<form action="" method="POST">
-        {% csrf_token %}
+    {% block content %}
+    <main>
+        <div class="container discover">
+            <div class="row">
+                <div class="col"><h1>discover and collect rare USDT</h1>
+                <p>The most secure marketplace for buying and selling unique crypto assets.</p></div>
+                <div class="col"><img src="{% static 'img/Other 07.png' %}" alt="">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="right" width="653" height="1276" viewBox="0 0 653 1276" fill="none">
+                        <g filter="url(#filter0_f_203_32)">
+                        <path d="M952 638C952 811.417 811.417 952 638 952C464.583 952 324 811.417 324 638C324 464.583 464.583 324 638 324C811.417 324 952 464.583 952 638Z" fill="#AAD9D9" fill-opacity="0.6"/>
+                        </g>
+                        <defs>
+                        <filter id="filter0_f_203_32" x="0" y="0" width="1276" height="1276" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="162" result="effect1_foregroundBlur_203_32"/>
+                        </filter>
+                        </defs>
+                        </svg></div>
+            </div>
+            <div class="row">
+                <div class="col btns">
+                    <a href="{% url 'wallet' %}"><button class="buy">SELL</button></a>
+                    <a href="{% url 'transaction_list' %}"><button class="sell">Transactions</button></a>
+                </div>
+            </div>
+        </div>
+    </main>
 
-        <label for="sender_wallet">Sender Wallet:</label>
-        <input type="text" name="sender_wallet" id="sender_wallet">
-    
-        <label for="recipient_address">Recipient Address:</label>
-        <input type="text" name="recipient_address" id="recipient_address">
-    
-        <label for="amount">Amount:</label>
-        <input type="text" name="amount" id="amount">
-    
-        <button type="submit">Create Transaction</button>
-    </form>
     {%  endblock %}
-    </div>
-
+    <script src="https://kit.fontawesome.com/d2d810dfd5.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

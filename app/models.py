@@ -24,6 +24,8 @@ class Transaction(models.Model):
     is_cancelled = models.BooleanField(default=False)
     confirming_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
+
+
     def confirm_transaction(self, address):
         if not self.is_confirmed and not self.is_cancelled  and self.sender_wallet.address!= address:
             self.is_confirmed = True
